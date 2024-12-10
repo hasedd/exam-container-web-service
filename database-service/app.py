@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Ensure database directory exists
-db_path = os.path.join(os.path.dirname(__file__), "../data/checksums.db")
+db_path = os.path.join(os.path.dirname(__file__), "/data/checksums.db")
 os.makedirs(os.path.dirname(db_path), exist_ok=True)
 
 # Initialize database schema

@@ -1,4 +1,5 @@
 # Use Python 3.9 base image
+# TODO : broken in 3.10 ?
 FROM python:3.9
 
 # Set the working directory
