@@ -6,25 +6,25 @@
 ``` 
 exam-container-web-service/
 │
-├── api-gateway/                     # API Gateway logic
+├── api-gateway/                     
 │   ├── Dockerfile
 │   ├── app.py
 │   └── requirements.txt
 │
-├── database-service/                # Database Service logic
+├── database-service/                
 │   ├── Dockerfile
 │   ├── app.py
 │   └── requirements.txt
 │
-├── checksum-service/                # Checksum logic
+├── checksum-service/
 │   ├── Dockerfile
 │   ├── app.py
 │   └── requirements.txt
 │
-├── docker-compose.yml               # Configuration for Docker Compose
-├── .gitignore                        # Git ignore file
-├── data/                             # Persistent database storage
-├── README.md                         # Documentation
+├── docker-compose.yml               
+├── .gitignore                        
+├── data/                             
+├── README.md                         
 ```
 
 Command to start up
@@ -53,6 +53,9 @@ To check if Data must sustain a container update (Stop and rerun container) thn 
 ```
 sudo docker compose down --remove-orphans
 sudo docker compose up --build -d
+```
+Check if we still have the data we generated before shutting down 
+```
 curl http://localhost:5050/list-checksums
 ```
 
