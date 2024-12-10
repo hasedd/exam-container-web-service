@@ -1,0 +1,21 @@
+
+
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "5050:5000"
+    depends_on:
+      - database-service
+
+  database-service:
+    build: ./database-service
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/data
+      
+  checksum-service:
+    build: ./checksum-service
+    ports:
+      - "5001:5000"
