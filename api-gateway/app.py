@@ -20,6 +20,7 @@ def compute_checksum():
             return jsonify({"error": "Please send a valid string to compute checksum"}), 400
 
         # Compute checksum using the checksum service
+        # TODO : configuration must be passed as env variable
         response = requests.post(
             "http://checksum-service:5002/checksum",
             json={"input_string": string, "algorithm": algorithm}
@@ -31,6 +32,7 @@ def compute_checksum():
         checksum_data = response.json()
 
         # Save the computed checksum to database-service
+        # TODO : configuration must be passed as env variable
         save_response = requests.post(
             "http://database-service:5000/save-checksum",
             json={"string": string, "checksum": checksum_data['checksum']}
@@ -50,6 +52,7 @@ def list_checksums():
     Route to get all checksums from the database service.
     """
     try:
+        # TODO : configuration must be passed as env variable
         response = requests.get("http://database-service:5000/get-checksums")
         if response.status_code == 200:
             return jsonify(response.json()), 200

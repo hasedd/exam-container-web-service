@@ -34,15 +34,17 @@ docker-compose up --build
 
 Takes a string as input and calculates its sha256 show the result
 ```
-POST http://localhost:5050/compute-checksum
--H "Content-Type: application/json"
+curl -X POST http://localhost:5050/compute-checksum \
+-H "Content-Type: application/json" \
 -d '{"string": "tester", "algorithm": "sha512"}'
 ```
+
 ```
 curl http://localhost:5050/list-checksums
 ```
 
 To try another algorithm change sha512 to sha256
+
 ```
 POST http://localhost:5050/compute-checksum
 -H "Content-Type: application/json"
@@ -54,6 +56,7 @@ To check if Data must sustain a container update (Stop and rerun container) thn 
 sudo docker compose down --remove-orphans
 sudo docker compose up --build -d
 ```
+
 Check if we still have the data we generated before shutting down 
 ```
 curl http://localhost:5050/list-checksums
